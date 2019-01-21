@@ -1,0 +1,102 @@
+
+<style>
+	.logo{
+		background-color: #188AE2;
+		color: #fff;
+		text-align: center;
+		font-size: 18px;
+		padding: 20px 0px;
+	}
+	
+	.advertise{
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+		
+		padding: 10px 0px;
+		border-top: 1px solid #aaa;
+		background-color: #f1f1f1;
+	}
+	
+	.advertise div {
+		text-align: center;
+		margin: 4px;
+		font-size: 14px;
+	}
+	
+	.menubar{
+		padding: 20px;
+	}
+	
+	.menubar .menu{
+		margin: 20px;
+		text-align: center;
+		font-size: 14px;
+		color: #444;
+		border:1px  dotted #0000;
+		border-radius: 1px;
+		padding: 4px;
+		cursor: default;
+		-webkit-user-select: none;
+    	-moz-user-select: none;
+    	user-select: none;
+	}
+	
+	.menubar .menu:hover{
+		border:1px  dotted #ccc;
+	}
+	
+	.menubar .active
+	{
+		background-color: #188AE2;
+		color: #fff;
+	}	
+</style>
+
+<div class='logo' >Student Information Management System</div>
+
+<div class='menubar'>	
+	<div class='menu' page='list.html'> View All</div>	
+	<div class='menu' page='add.html'> Add </div>	
+</div>
+
+<div class='advertise'> 
+	<div > By Huian Wang </div>
+	<div > <a href='http://www.whuian.me'> www.whuian.me </a> </div>
+</div>
+
+
+<script>
+
+	function showPage(page)
+	{
+		var menu = $(".menubar [page='" + page + "']" );
+
+		if( ! menu.hasClass('active') ) 
+		{
+			$('.menubar .active').removeClass('active');
+			menu.addClass('active');
+			
+			var page = menu.attr('page');			
+			Af.loadPage("#container", page);
+			window.location.hash = "#" + page;
+		}	
+	}
+
+	$('.menubar .menu').click( function(){		
+		var page = $(this).attr('page');
+		showPage (page);
+	});
+	
+	if(location.hash != null && location.hash.length>0)
+	{
+		var page = location.hash.substr(1);
+		showPage (page);			
+	}
+	else
+	{
+		showPage ("list.html" );
+	}
+
+</script>

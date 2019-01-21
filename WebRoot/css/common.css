@@ -1,0 +1,18 @@
+
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+table{
+	border-collapse: collapse;
+	table-layout: fixed ;
+	word-break: break-all;
+	word-wrap:break-word;
+}
+
+table,td,th{
+	border: 1px solid #888;
+	text-align: center;
+}
+

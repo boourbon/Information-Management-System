@@ -1,0 +1,130 @@
+
+<style>
+
+	.main .toolbar
+	{
+		margin:  10px 0px;
+	}
+	
+	.main .submit{
+		background-color: #188AE2;
+		min-width: 80px;
+		border: 1px solid #eee;
+		padding: 5px;
+		border-radius: 2px;
+		color: #fff;
+	}
+	
+	.main .filter{
+	    padding-left: 45px;
+	    margin-left: 40px;
+	}
+
+	.main .content{
+		display: inline-block;
+		width: 500px;
+		vertical-align: top;
+		padding-left: 40px;
+        padding-right: 10px;
+	}
+	
+	.main .profile{
+		display: inline-block;
+		width: calc(100% - 500px - 60px);
+		vertical-align: top;
+	}
+
+	.main .content .empty{
+		text-align: center;
+		padding: 4px;
+		display: block;
+		border: 0px solid #888;
+		border-width: 0px 1px 1px 1px;				
+	}
+	
+	.main .table{
+		width: 100%;
+	}
+	
+	.main .table .datarow{		
+	}
+	
+	.main .table .datarow:hover{	
+		background-color: #E8F2FE;	
+	}
+	
+	.main .table .selected{	
+		background-color: #E8F2FE;		
+	}
+	
+	.main .table .c1{ width: 100px; }
+	.main .table .c2{ width: 120px; }
+	.main .table .c3{ width: 80px; }
+	.main .table .c4{ width: 120px; }
+
+	.main .photobox{
+		width: 150px;
+		height: 150px;
+		margin: 10px auto;
+	}
+	
+	.main .photobox img{
+		width: 100%;
+		height: 100%;
+	}
+	
+</style>
+
+<div class='main'>
+	<div class='toolbar'>
+		<input type='text' class='filter' placeholder="Query by Name"  />				
+		<button class='submit' onclick='M.query()'> Query </button>
+	</div>
+	
+	<div class='content'>
+		<table class='table'>
+			<thead>
+				<tr>
+					<th class='c1'> ID </th>
+					<th class='c2'> Name </th>
+					<th class='c3'> Gender </th>
+					<th class='c4'> Phone </th>
+					<th class='c5'> - </th>
+				</tr>
+			</thead>
+			<tbody>						
+			</tbody>
+			
+			<tfoot class='template' style='display: none;'>
+				<tr class='datarow' index='{#index}' onclick='M.rowClicked(this)'>
+					<td> {#id} </td>
+					<td> {#name} </td>
+					<td> {#sex2} </td>
+					<td> {#phone}</td>
+					<td> 
+						<button data='{#id}' onclick='M.doRemove(this)'> Delete </button>								
+					</td>
+				</tr>						
+			</tfoot>
+		</table>
+		
+		<div class='empty'>
+			Empty
+		</div>
+	
+	</div>
+	
+	<div class='profile'>
+		<div class='name' style='text-align: center;' > - </div>
+		<div class='photobox'>
+			<img class='photo' src='./data/default/no-avatar.jpg' >
+		</div>		
+		<div style='text-align: center;'>
+			<button onclick='M.uploadPhoto()'> Upload Photo </button>
+			<input type='file' class='filebutton'  style='display:none'/>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="./js/list.js"></script>
+

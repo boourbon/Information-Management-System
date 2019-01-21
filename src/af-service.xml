@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+	<upload name="BasicFile" class="my.BasicFileUpload" />
+	<upload name="Photo" class="my.PhotoUpload" />
+	
+	<service name="StudentAdd" class="my.StudentAddApi" /> 
+	<service name="StudentList" class="my.StudentListApi" /> 
+	<service name="StudentQuery" class="my.StudentQueryApi" /> 
+	<service name="StudentRemove" class="my.StudentRemoveApi" /> 
+	
+	<service name="ProfileGet" class="my.ProfileGetApi" /> 
+</config>
